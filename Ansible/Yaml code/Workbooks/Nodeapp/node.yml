@@ -1,13 +1,14 @@
 ---
 - hosts: all
-become:  yes 
-tasks: 
+  become:  yes 
+  tasks: 
 - name :  "update apt packages"
   apt:
     update_cache: yes 
 #node js specific settings
 # installed from details 
 #"https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04"
+#"https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04"
 
 - hosts: app
   become: all 
@@ -32,12 +33,19 @@ tasks:
     template:
       src: "templates/hello.js.j2"
       dest: "{{ folderpath }}/hello.js"
+  - name: "Install pm2"
+    npm:
+      name: cofee-script
+      state: present
+  - name: "Install nodejs app"
+      name: "pm2 start {{ folderpath }}/hello.js"
+
 
 - hosts: web 
   become: yes 
   vars:
-    webserver_dns_name: "ec2-13-59-216-107.us-east-2.compute.amazonaws.com"
-    appserver_ip: 172.31.46.55
+    webserver_dns_name: "ec2-52-14-255-193.us-east-2.compute.amazonaws.com"
+    appserver_ip: 13.58.30.150
   tasks:
   - name: "intall nginx"
     apt:
