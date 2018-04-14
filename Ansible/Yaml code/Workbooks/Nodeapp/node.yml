@@ -21,7 +21,6 @@
       path: "{{ folderpath }}"
       state: directory
       mode: 0755
-<<<<<<< HEAD
    - name: "download node js setup packages"
      command: "curl -sL https://deb.nodesource.com/setup_8.x -o {{ folderpath }}/nodesource_setup.sh"
    - name: "Exeucute dowbload shell script"
@@ -37,13 +36,13 @@
 
    - name: "Install pm2"
      npm:
-      name: cofee-script
+      name: pm2
       state: present
    - name: "Install nodejs app"
-      name: "pm2 start {{ folderpath }}/hello.js"
-      ststus: present
+     command: "pm2 start {{ folderpath }}/hello.js"
+     ststus: present
 
-- hosts: web 
+ - hosts: web 
    become: yes 
    vars:
      webserver_dns_name: "ec2-13-59-216-107.us-east-2.compute.amazonaws.com"
