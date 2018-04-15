@@ -42,7 +42,7 @@
      command: "pm2 start {{ folderpath }}/hello.js"
      state: present
 
- - hosts: web 
+- hosts: web 
    become: yes 
    vars:
      webserver_dns_name: "ec2-13-59-216-107.us-east-2.compute.amazonaws.com"
