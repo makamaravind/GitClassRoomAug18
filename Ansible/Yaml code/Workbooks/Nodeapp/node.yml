@@ -40,7 +40,7 @@
       state: present
    - name: "Install nodejs app"
      command: "pm2 start {{ folderpath }}/hello.js"
-     ststus: present
+     state: present
 
  - hosts: web 
    become: yes 
