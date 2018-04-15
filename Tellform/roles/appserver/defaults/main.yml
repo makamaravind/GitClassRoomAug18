@@ -1,2 +1,6 @@
 ---
 # defaults file for appserver
+folderpath: /home/anisble/nodesetup
+appserverport: 8080
+app_ip: 172.31.5.239
+node_version: 6

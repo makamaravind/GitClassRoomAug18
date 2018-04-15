@@ -15,6 +15,7 @@
    vars:
      folderpath: /home/anisble/nodesetup
      appserverport: 8080
+     app_ip:
    tasks: 
    - name: "creating nodesetup directory"
      file:
