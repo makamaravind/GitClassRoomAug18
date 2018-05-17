@@ -2,3 +2,5 @@
 Learning Git
 
 I would be making samller commits
+
+Master branch
